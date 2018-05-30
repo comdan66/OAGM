@@ -30,8 +30,6 @@ function initOAGM () {
     },
     draw: function () {
       if (!this._div) {
-        console.error ('x');
-        
         this._div = document.createElement ('div');
         this._div.style.position = 'absolute';
 
