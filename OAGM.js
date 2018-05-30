@@ -4,7 +4,7 @@
  * @license     http://opensource.org/licenses/MIT  MIT License
  * @link        https://www.ioa.tw/
  */
- 
+
 function OAGM (option) {
   this._div = null;
   this._option = Object.assign ({className: '', top: 0, left: 0, width: 32, height: 32, map: null, position: null }, option);
@@ -48,7 +48,7 @@ function initOAGM () {
 
       this.setPoint ();
     },
-    remove: function() {
+    remove: function () {
       if (!this._div)
         return this;
 
@@ -57,31 +57,31 @@ function initOAGM () {
       
       return this;
     },
-    setWidth: function(width) {
+    setWidth: function (width) {
       this._option.width = width;
       this._div.style.width = this._option.width + 'px';
       this.setPoint ();
       return this;
     },
-    setHeight: function(height) {
+    setHeight: function (height) {
       this._option.height = height;
       this._div.style.height = this._option.height + 'px';
       this.setPoint ();
       return this;
     },
-    setTop: function(top) {
+    setTop: function (top) {
       this._option.top = top;
       this._div.style.top = this._option.top + 'px';
       this.setPoint ();
       return this;
     },
-    setLeft: function(left) {
+    setLeft: function (left) {
       this._option.left = left;
       this._div.style.left = this._option.left + 'px';
       this.setPoint ();
       return this;
     },
-    setPosition: function(position) {
+    setPosition: function (position) {
       if (!this.map)
         return this;
 
@@ -89,6 +89,9 @@ function initOAGM () {
       this.setPoint ();
 
       return this;
+    },
+    getPosition: function () {
+      return this._option.position;
     }
   });
 }
