@@ -7,7 +7,7 @@
 
 function OAGM (option) {
   this._div = null;
-  this._option = Object.assign ({className: '', top: 0, left: 0, width: 32, height: 32, map: null, position: null }, option);
+  this._option = Object.assign ({className: '', top: 0, left: 0, width: 32, height: 32, html: '', map: null, position: null }, option);
   this._option.map && this.setMap (this._option.map);
 }
 function initOAGM () {
@@ -36,6 +36,7 @@ function initOAGM () {
         this._div.className = this._option.className;
         this._div.style.width = this._option.width + 'px';
         this._div.style.height = this._option.height + 'px';
+        this._div.innerHTML = this._option.html;
 
         var that = this;
         google.maps.event.addDomListener (this._div, 'click', function(e) { if (e.stopPropagation) e.stopPropagation (); google.maps.event.trigger (that, 'click'); });
@@ -78,6 +79,19 @@ function initOAGM () {
       this._div.style.left = this._option.left + 'px';
       this.setPoint ();
       return this;
+    },
+    setHtml: function (html) {
+      this._option.html = html;
+      this._div.innerHTML = this._option.html;
+      return this;
+    },
+    setClassName: function (className) {
+      this._option.className = className;
+      this._div.className = this._option.className;
+      return this;
+    },
+    getClassName: function () {
+      return this._option.className;
     },
     setPosition: function (position) {
       if (!this.map)
